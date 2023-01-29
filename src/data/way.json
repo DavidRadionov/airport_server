@@ -1,0 +1,28 @@
+{
+  "myName": "Radionov David",
+  "id": 12312,
+  "hour": 3,
+  "minute": 34,
+  "points": [
+    {
+      "name": "A",
+      "numb": 0
+    },
+    {
+      "name": "B",
+      "numb": 1
+    },
+    {
+      "name": "C",
+      "numb": 2
+    },
+    {
+      "name": "D",
+      "numb": 3
+    }
+  ],
+  "position": {
+    "name": "B",
+    "numb": 1
+  }
+}

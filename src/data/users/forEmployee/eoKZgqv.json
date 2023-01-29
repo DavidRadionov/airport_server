@@ -1,0 +1,56 @@
+{
+  "myName": null,
+  "id": "eoKZgqv",
+  "hours": 0,
+  "minutes": 40,
+  "seconds": 60,
+  "dateStart": 1668806346737,
+  "scheme": "scheme01",
+  "pointsClient": [
+    {
+      "name": "Минск",
+      "numb": 0
+    },
+    {
+      "name": "Летит",
+      "numb": 1
+    },
+    {
+      "name": "Москва",
+      "numb": 2
+    }
+  ],
+  "pointsScheme": [
+    {
+      "name": "A",
+      "numb": 0
+    },
+    {
+      "name": "C",
+      "numb": 1
+    },
+    {
+      "name": "G",
+      "numb": 2
+    },
+    {
+      "name": "B",
+      "numb": 3
+    }
+  ],
+  "status": {
+    "message": "В пути",
+    "code": 200
+  },
+  "positionClient": {
+    "name": "Минск",
+    "numb": 0
+  },
+  "positionScheme": {
+    "name": "A",
+    "numb": 0
+  },
+  "name": "david",
+  "phone": "+375333297513",
+  "email": "4elovek.wu3ni@gmail.com"
+}

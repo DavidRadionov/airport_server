@@ -1,0 +1,29 @@
+{
+  "myName": "Aasdasda",
+  "id": "FISxGOx",
+  "hours": 0,
+  "minutes": 37,
+  "dateStart": 1667125915519,
+  "points": [
+    {
+      "name": "Киев",
+      "numb": 0
+    },
+    {
+      "name": "Летит",
+      "numb": 1
+    },
+    {
+      "name": "Мадрид",
+      "numb": 2
+    }
+  ],
+  "status": {
+    "message": "В пути",
+    "code": 400
+  },
+  "position": {
+    "name": "Киев",
+    "numb": 1
+  }
+}

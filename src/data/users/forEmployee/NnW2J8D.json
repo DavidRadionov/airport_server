@@ -1,0 +1,32 @@
+{
+  "myName": null,
+  "id": "NnW2J8D",
+  "hours": 0,
+  "minutes": 40,
+  "seconds": 60,
+  "points": [
+    {
+      "name": "Минск",
+      "numb": 0
+    },
+    {
+      "name": "Летит",
+      "numb": 1
+    },
+    {
+      "name": "Москва",
+      "numb": 2
+    }
+  ],
+  "status": {
+    "message": "В пути",
+    "code": 200
+  },
+  "position": {
+    "name": "Минск",
+    "numb": 0
+  },
+  "name": "davida",
+  "phone": "+3745234234234",
+  "email": "4elovek.wu3ni@gmail.com"
+}
