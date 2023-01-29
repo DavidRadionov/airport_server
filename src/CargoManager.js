@@ -1,37 +1,28 @@
-import fs from "fs";
 import fetch from "node-fetch";
 
-//TODO: ----------------------------------------
-
 export class CargoManager {
-    setStatusBaggage = () => {
 
-    }
-    getStatusBaggage = () => {
-
-    }
-
-    setNextPointByBaggage = () => {
-
-    }
-//TODO: ----------------------------------------
-
-//TODO: добавить симуляцию запросов на сервер на прохождение опредленной точки или этапа + реализация на сервере
-//TODO: добавить информацию о сети аэропорта
 
     getTimeByPoints = async (start, end) => {
         const result = await fetch('https://sekundomer.net/calcs/vremya-poleta-na-samolete/api.php?from=' + start + '&to=' + end)
             .then(res => res.json()).then(obj => obj.content).catch((error) => console.log(error));
-        // 'Из "Минск" в "Ласвегас" лететь в среднем 11 часов 43 минуты'
+        const time = result.match(/(-?\d+(\.\d+)?)/g).map(v => +v);
+        return {
+            hours: time[0],
+            minutes: time[1],
+            dateStart: Date.now()
+        };
+    }
 
-        let res = {
-            hours: 0,
-            minutes: 37,
-            dateStart: 0
-        }
 
-        res.dateStart = Date.now();
+    getScheme = (start, end) => {
+        return Math.floor(Math.random() * 4 + 1);
+    }
 
+    getPositionOnScheme = (points) => {
+        console.log(points.length);
+        const res = Math.floor(Math.random() * points.length);
+        console.log(res)
         return res;
     }
 

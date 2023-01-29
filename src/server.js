@@ -4,14 +4,10 @@ import {
 } from "./Manager.js";
 import { DBManager } from "./DBManager.js";
 import { CargoManager } from "./CargoManager.js";
-import fetch from 'node-fetch';
 
 const app = express();
-const RUN_URL = "http://127.0.0.1:3000/login"
-// const GLOBAL_URL = "http://192.168.0.48:3000/client/";
-const GLOBAL_URL = "http://172.20.10.2:3001/client/";
-console.log(RUN_URL);
-console.log( Date.now());
+const GLOBAL_URL = "http://192.168.0.47:3000/client/";
+// const GLOBAL_URL = "http://172.20.10.2:3001/client/";
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -20,58 +16,6 @@ app.use(function (req, res, next) {
 
 app.use(express.json());
 
-const schemes = {
-    schemes: [
-        {
-            name: "something",
-            points: []
-        },
-        {
-            name: "something1",
-            points: []
-        },
-        {
-            name: "something2",
-            points: []
-        },
-        {
-            name: "something3",
-            points: []
-        },
-        {
-            name: "something4",
-            points: []
-        },
-        {
-            name: "something5",
-            points: []
-        },
-        {
-            name: "something6",
-            points: []
-        },
-        {
-            name: "something7",
-            points: []
-        },
-        {
-            name: "something8",
-            points: []
-        },
-        {
-            name: "something9",
-            points: []
-        },
-        {
-            name: "something10",
-            points: []
-        },
-        {
-            name: "something11",
-            points: []
-        }
-    ]
-}
 const cargoManager = new CargoManager();
 const dbManager = new DBManager();
 const manager = new Manager(dbManager, cargoManager);
@@ -104,7 +48,7 @@ app.get("/getProfileByID/:id", (req, res) => {
     res.json(profile);
 })
 
-app.get("/removeCargoByID", (req, res) => {
+app.get("/removeCargoByID/:id", (req, res) => {
     const id = req.params["id"];
     dbManager.removeCargoByID(id);
     console.log("id");
@@ -128,19 +72,24 @@ app.get("/getNotificationsByID/:id", async (req, res) => {
     res.json(notifications);
 })
 
-app.get("/removeScheme", (req, res) => {
+app.get("/addScheme/:scheme", (req, res) => {
     const scheme = req.params["scheme"];
-    dbManager.removeScheme(scheme);
+    dbManager.addScheme(scheme);
+})
+
+app.get("/removeScheme/:scheme", (req, res) => {
+    const scheme = req.params["scheme"];
+    dbManager.removeSchemeByName(scheme);
 })
 
 app.get("/getSchemes", async (req, res) => {
-    const schemes = await dbManager.getSchemes();
+    const schemes = await dbManager.getSchemesName();
     res.json(schemes);
 })
 
-app.get("/getStateBaggageByID/:id", (req, res) => {
+app.get("/getStateBaggageByID/:id", async (req, res) => {
     const id = req.params["id"];
-    const result = manager.getCargoForClientByID(id);
+    const result = await manager.getCargoForClientByID(id);
     res.json(result);
 })
 
@@ -149,14 +98,19 @@ app.get("/getCities", async (req, res) => {
     res.json(cities);
 })
 
+app.get("/getUsers", async (req, res) => {
+    const users = await dbManager.getUsers();
+    res.json(users);
+})
+
 app.get("/addCity/:city", (req, res) => {
     const city = req.params["city"];
-    manager.addCity(city);
+    dbManager.addCity(city);
 })
 
 app.get("/removeCity/:city", (req, res) => {
     const city = req.params["city"];
-    manager.removeCity(city);
+    dbManager.removeCity(city);
 })
 
 app.post("/getURL", (req, res) => {

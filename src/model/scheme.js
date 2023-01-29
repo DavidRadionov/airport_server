@@ -1,4 +1,4 @@
 export class Scheme {
     name = "";
-    points = [];
+    id = 0;
 }

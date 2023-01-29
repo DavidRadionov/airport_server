@@ -1,5 +1,5 @@
 export class Route {
-    citiStart = "";
-    citiEnd = "";
-    name = "";
+    cityStart = "";
+    cityEnd = "";
+    position = 0;
 }

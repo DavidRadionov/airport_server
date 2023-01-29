@@ -8,4 +8,7 @@ export class Cargo {
     time = new Time();
     route = new Route();
     scheme = new Scheme();
+    id = 0;
+    statusCode = 200;
+    statusMessage = "";
 }
